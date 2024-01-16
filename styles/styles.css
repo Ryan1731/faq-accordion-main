@@ -43,7 +43,7 @@ main {
     align-items: center;
     display: flex;
     flex-direction: column;
-    padding: 28%;
+    padding: 29%;
     min-width: 100vw;
     min-height: 100vh;
     justify-content: center;
@@ -58,7 +58,7 @@ main {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     border-radius: 1rem;
     padding: 2.5rem;
-    min-height: 550px;
+    min-height:fit-content;
 }
 
 /* Card Title */
@@ -83,6 +83,11 @@ main {
     border-bottom: 1px solid var(--light-pink)
 }
 
+.faq-question:last-child {
+    padding-bottom: 0px;
+    border-bottom: none;
+}
+
 .question-text {
     /* Apprearance */
     color: var(--dark-purple);
@@ -97,5 +102,11 @@ main {
 }
 
 .faq-answer {
+    color: var(--grayish-purple);
+    line-height: 1.5rem;
     margin-top: 20px;
+}
+
+.closed {
+    display: none;
 }
