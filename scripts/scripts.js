@@ -10,13 +10,27 @@ window.onload = function() {
 
 questionButtons.forEach((button, index) => {
     button.id = `button-${index + 1}`;
-    button.addEventListener("click", () => displayAnswer(index));
+    button.addEventListener("click", () => displayAnswer(button, index));
 });
 
-function displayAnswer(index) {
-    let correspondingAnswer = document.getElementById(`answer-${index + 1}`);
-    correspondingAnswer.classList.toggle("closed");
-    console.log(`question button ${index + 1} clicked`);
-    console.log(correspondingAnswer);
+function displayAnswer(button, index) {
+    toggleAnsVisibility(index);
+    toggleIcon(button);
 }
 
+function toggleAnsVisibility(index) {
+    let correspondingAnswer = document.getElementById(`answer-${index + 1}`);
+    correspondingAnswer.classList.toggle("closed");
+}
+
+function toggleIcon(button) {
+    let openIndicator = button.querySelector("#open-indicator");
+    if (openIndicator.classList.contains("icon-minus")) {
+        openIndicator.classList.remove("icon-minus");  
+        openIndicator.classList.add("icon-plus");  
+    } 
+    else if (openIndicator.classList.contains("icon-plus")) {
+        openIndicator.classList.remove("icon-plus");  
+        openIndicator.classList.add("icon-minus");  
+    } 
+}
