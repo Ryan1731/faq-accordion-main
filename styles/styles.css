@@ -1,7 +1,7 @@
 /*** Local Fonts ***/
 @font-face {
     font-family: Work Sans;
-    src: url("/assets/fonts/WorkSans-VariableFont_wght.ttf");
+    src: url("../assets/fonts/WorkSans-VariableFont_wght.ttf");
     /* Weights: 400, 600, 700 */
 }
 
@@ -37,7 +37,7 @@ body {
 /*** Main ***/
 main {
     /* Background Image */
-    background-image: url("/assets/images/background-pattern-desktop.svg");
+    background-image: url("../assets/images/background-pattern-desktop.svg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: top;   
@@ -74,7 +74,7 @@ main {
 }
 
 #star-icon {
-    background-image: url("/assets/images/icon-star.svg");
+    background-image: url("../assets/images/icon-star.svg");
     background-size: contain;
     background-position: center;
     width: 40px;
@@ -128,11 +128,11 @@ main {
 }
 
 .icon-plus {
-    background-image: url("/assets/images/icon-plus.svg");
+    background-image: url("../assets/images/icon-plus.svg");
 }
 
 .icon-minus {
-    background-image: url("/assets/images/icon-minus.svg");
+    background-image: url("../assets/images/icon-minus.svg");
 }
 
 .faq-answer {
