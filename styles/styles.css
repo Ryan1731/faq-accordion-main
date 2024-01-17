@@ -11,6 +11,7 @@
     padding: 0px;
     margin: 0px;
     list-style: none;
+    transition: all 0.1s ease;
 }
 
 /*** Design Themes ***/
@@ -48,8 +49,7 @@ main {
     justify-content: center;
     min-width: 100vw;
     min-height: 100vh;
-    padding-left: 29%;
-    padding-right: 29%;
+    padding: 0 29%;
     
     /* Appearance */
     background-color: var(--light-pink);
@@ -68,9 +68,17 @@ main {
 /* Card Title */
 .card-title {
     display: flex;
-    flex-direction: row;
+    align-items: center;
     gap: 1rem;
     margin-bottom: 25px;
+}
+
+#star-icon {
+    background-image: url("/assets/images/icon-star.svg");
+    background-size: contain;
+    background-position: center;
+    width: 40px;
+    height: 40px;
 }
 
 .card-title h1 {
@@ -99,9 +107,11 @@ main {
     user-select: none;
     font-weight: 600;
     font-size: 17.5px;
+    width: 100%;
 
     /* Layout */
     display: flex;
+    gap: 15px;
     align-items: center;
     justify-content: space-between;
     margin-top: 25px;
