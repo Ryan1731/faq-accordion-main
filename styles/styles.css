@@ -93,7 +93,6 @@ main {
     transition: max-height 0.2s linear;
 
     /* Bottom Border */
-    padding-bottom: 25px;
     border-bottom: 1px solid var(--light-pink);
 }
 
@@ -104,6 +103,7 @@ main {
 
 .faq-question.toggleFAQ {
     max-height: 300px;
+    padding-bottom: 25px;
 }
 
 .question-text {
