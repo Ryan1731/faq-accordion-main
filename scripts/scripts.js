@@ -1,28 +1,42 @@
-const questionButtons = document.querySelectorAll(".question-text");
+document.addEventListener("DOMContentLoaded", () => {
+    const faqContainer = document.querySelector(".faq-container");
 
-questionButtons.forEach((button, index) => {
-    button.id = `button-${index + 1}`;
-    button.addEventListener("click", () => displayAnswer(button, index));
+    faqContainer.addEventListener("click", (event) => {
+        const button = event.target.closest(".faq-question");
+        if (button) {
+            toggleAnsVisibility(button);
+            toggleIcon(button);
+            closeOtherButtons(button);
+        }
+    });
 });
 
-function displayAnswer(button, index) {
-    toggleAnsVisibility(index);
-    toggleIcon(button);
-}
+function toggleAnsVisibility(button) {
+    const answer = button.querySelector(".faq-answer");
+    const newHeight = answer.offsetHeight + 100; //add 100px to account for original max height (75px) and original bottom padding (25px).
 
-function toggleAnsVisibility(index) {
-    let correspondingQuestionButton = document.getElementById(`button-${index + 1}`).parentElement;
-    correspondingQuestionButton.classList.toggle("toggleFAQ");
+    button.classList.toggle("toggleFAQ");
+
+    if (button.classList.contains("toggleFAQ")) {
+        button.style.maxHeight = newHeight + "px";
+    }
+    else {
+        button.style.maxHeight = "75px";
+    } 
 }
 
 function toggleIcon(button) {
-    let openIndicator = button.querySelector("#open-indicator");
-    if (openIndicator.classList.contains("icon-minus")) {
-        openIndicator.classList.remove("icon-minus");  
-        openIndicator.classList.add("icon-plus");  
-    } 
-    else if (openIndicator.classList.contains("icon-plus")) {
-        openIndicator.classList.remove("icon-plus");  
-        openIndicator.classList.add("icon-minus");  
-    } 
+    const iconIndicator = button.querySelector(".icon-indicator");
+    iconIndicator.classList.toggle("icon-plus");
+    iconIndicator.classList.toggle("icon-minus");
+}
+
+function closeOtherButtons(currentButton) {
+    const allButtons = document.querySelectorAll(".faq-question");
+    allButtons.forEach(button => {
+        if (button !== currentButton && button.classList.contains("toggleFAQ")) {
+            toggleAnsVisibility(button);
+            toggleIcon(button);
+        }
+    })
 }
