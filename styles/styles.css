@@ -11,7 +11,7 @@
     padding: 0px;
     margin: 0px;
     list-style: none;
-    transition: all 0.1s ease;
+    transition: all 0.1s linear;
 }
 
 /*** Design Themes ***/
@@ -55,13 +55,13 @@ main {
     background-color: var(--light-pink);
 }
 
-/*** FAQ Card ***/
-.faq-card {
+/*** FAQ Container ***/
+.faq-container {
     background-color: var(--white);
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     border-radius: 1rem;
     padding: 2.5rem;
-    min-height:fit-content;
+    min-height: fit-content;
     width: 100%;
 }
 
@@ -88,7 +88,9 @@ main {
 
 /* Questions */
 .faq-question {
-    margin-top: 25px;
+    max-height: 75px;
+    overflow: hidden;
+    transition: max-height 0.2s linear;
 
     /* Bottom Border */
     padding-bottom: 25px;
@@ -98,6 +100,10 @@ main {
 .faq-question:last-child {
     padding-bottom: 0px;
     border-bottom: none;
+}
+
+.faq-question.toggleFAQ {
+    max-height: 300px;
 }
 
 .question-text {
@@ -110,11 +116,12 @@ main {
     width: 100%;
 
     /* Layout */
+    margin-top: 20px;
+    margin-bottom: 20px;
     display: flex;
     gap: 15px;
     align-items: center;
     justify-content: space-between;
-    margin-top: 25px;
     z-index: 500;
 }
 
@@ -122,7 +129,7 @@ main {
     color: var(--bright-pink);
 }
 
-#open-indicator {
+.icon-indicator {
     width: 30px;
     height: 30px;
 }
@@ -138,9 +145,4 @@ main {
 .faq-answer {
     color: var(--grayish-purple);
     line-height: 1.5rem;
-    margin-top: 20px;
-}
-
-.closed {
-    display: none;
 }
